@@ -1,0 +1,5 @@
+<h4>This is to show ngOnDestroy lifecycle hook:</h4>
+<hinvapp-demolition *ngIf="!destroyed" (destructionEvent)="destructionCounter()"></hinvapp-demolition>
+<p *ngIf="destroyed" class="bg-dark text-white h5 p-2 text-decoration-underline">Told you<span class="d-inline-block">&nbsp;💀</span></p>
+<hinvapp-destroy-btn (destructionEvent)="destroy($event)"></hinvapp-destroy-btn>
+<p class="mt-1">Times destroyed: {{ destructionCount }}</p>

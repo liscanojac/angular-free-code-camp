@@ -1,0 +1,10 @@
+<h3>This component is used to show how to create and use injectable services</h3>
+<h5>Real Madrid players</h5>
+<div class="d-flex justify-content-around bg-info">
+  <p class="m2">Number</p>
+  <p class="m2">Name</p>
+</div>
+<div *ngFor="let player of players; let even = even" class="d-flex justify-content-around" [ngClass]="{'bg-light': even}">
+  <p class="m-2">{{ player.number }}</p>
+  <p class="m-2">{{ player.name }}</p>
+</div>

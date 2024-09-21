@@ -1,0 +1,15 @@
+<p>players works!</p>
+<hinvapp-header></hinvapp-header>
+<hinvapp-player-title [title]="title"></hinvapp-player-title>
+<form action="submit" class=" form row gx-2" (ngSubmit)="submitTitle()">
+  <div class="col-auto">
+    <input type="text" placeholder="Insert new title..." class="form-control" id="staticEmail2" name="title" [(ngModel)]="titleInput">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Change title</button>
+  </div>
+</form>
+<div *ngIf="lastPlayerSelected.selected">lastPlayerSelected: {{ lastPlayerSelected | json }}</div>
+<div *ngFor="let player of players; let even = even" [ngClass]="{'bg-light': even}">
+  <hinvapp-player [player]="player" (lastSelectedPlayer)="setLastPlayerSelected($event)"></hinvapp-player>
+</div>

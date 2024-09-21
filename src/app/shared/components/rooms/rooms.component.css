@@ -1,0 +1,17 @@
+.test {
+  font-size: large;
+  font-weight: bold;
+}
+
+.test2 {
+  color: red;
+}
+
+.item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bold {
+  font-weight: bold;
+}

@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-around" [ngClass]="{'bg-warning': player.selected}">
+  <p>{{ player.name }}</p>
+  <p>{{ player.number }}</p>
+  <div>
+    <button type="button" class="btn" [ngClass]="player.selected ? 'btn-danger' : 'btn-success'" (click)="selectPlayer(player)">{{player.selected ? 'UnselectPlayer' : 'SelectPlayer'}}</button>
+  </div>
+</div>

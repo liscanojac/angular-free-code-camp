@@ -1,0 +1,16 @@
+<!-- ng-content is like vue-slots where you can pass html or even whole components on the parent component -->
+<h4>ng-content example</h4>
+<p>unnamed content:</p>
+<ng-content></ng-content>
+<hr>
+<!-- and the select prop is like the named slots -->
+<p>content 1:</p>
+<ng-content select="[content-1]"></ng-content>
+<hr>
+<p>content 2:</p>
+<ng-content select="[content-2]"></ng-content>
+<hr>
+<!-- what to do if you want some componet in an specific ng-content? Well, like this -->
+<p>component-named content:</p>
+<ng-content select="hinvapp-header"></ng-content>
+<hr>

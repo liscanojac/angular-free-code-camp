@@ -1,0 +1,15 @@
+.employeesList, .sliceFlex {
+  display: flex;
+}
+
+.employee {
+  margin-left: 1rem;
+}
+
+.even {
+  background-color: gainsboro;
+}
+
+.sliceFlex p {
+  margin-left: 1rem;
+}

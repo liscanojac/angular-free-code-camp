@@ -1,0 +1,102 @@
+<p>rooms works!</p>
+<p>Welcome to the {{hotelName}} Hotel</p>
+<p [class.test]="onTetsClass" [class.test2]="onTestClass2">Binding class Names</p>
+<button type="button" (click)="changeClass()">Click me</button>
+<div *ngIf="testNum > 2">
+  <p>Testing a ngIf</p>
+  <p>this means testNum > 2</p>
+</div>
+<br>
+<button type="button" (click)="sumNum()">Add One</button>
+<button type="button" (click)="resetBtn()">ResetNum</button>
+<div>
+  <h3>Testing NgIfElse</h3>
+  <div *ngIf="testIfElseBoolean;else testTemplate">If Expression</div>
+  <ng-template #testTemplate>Else Expression</ng-template>
+</div>
+<button type="button" (click)="toggleContent()">ngIfElse - Button</button>
+<div>
+  <h4>Testing ngFor Directive</h4>
+  <!-- you can use the variable index in an ngFor to get the index of the loop -->
+  <div *ngFor="let item of items; let i = index">
+    <div class="item">
+      <div>{{ item.rank }}</div>
+      <div>{{ item.name }}</div>
+      <div>{{ i + 1 }}</div>
+    </div>
+  </div>
+</div>
+<h4>Testing ngSwitch Directive</h4>
+<form>
+  <label for="players">Choose a player number:</label>
+  <select name="playerSelector" id="players" [(ngModel)]="currentPlayer">
+    <option [value]="currentPlayerInitialValue" selected disabled>Please Choose a Player...</option>
+    <!-- if you define in a variable let even and/or let odd in the ngFor you can automatically select the even/odd values -->
+    <!-- you can name it whatever you want but by default their names are even and odd -->
+    <!-- you can define them with different names like but if you define them both remember to equal to their values like: -->
+    <!-- let even = even let odd = odd -->
+    <!-- also you can use whatever variable name you like -->
+    <!-- let evenValue = even let oddVal = odd -->
+    <option *ngFor=" let player of players; let even = even" [ngValue]="player" [ngClass]="{even}">{{ player.number }}
+    </option>
+  </select>
+</form>
+<div [ngSwitch]="currentPlayer.name" *ngIf="currentPlayer.number > 0">
+  <div *ngSwitchCase="'Courtois'">Thibaut {{currentPlayer.name}} is 32yo GK</div>
+  <div *ngSwitchDefault>{{currentPlayer.name}} is a Real Madrid football player</div>
+</div>
+<!-- ng-container -->
+<!-- when you want to add a tag to group part of the html without intefering the structure of it -->
+<!-- If you press the toggleCont button you'll see -->
+<p>
+  If you want others to be happy, practice
+  <span [ngClass]="{bold: testIfElseBoolean}">compassion</span>
+  . If you want to be happy, practice
+  <span [ngClass]="{bold: testIfElseBoolean}">compassion.</span>
+  <!-- but take into account that ng-cotainers cant hold classes as you can see it here -->
+  <ng-container *ngIf="testIfElseBoolean" class="bold"> Dalai Lama</ng-container>
+</p>
+
+<!-- NgStyle binding -->
+<hr>
+<h3>NgStyle Binding</h3>
+<div [style.font-size]="isSpecial ? 'x-large' : 'smaller'">
+  This div is x-large or smaller.
+</div>
+<h4>[ngStyle] binding to currentStyles - CSS property names</h4>
+<p>currentStyles is {{ currentStyles | json }}</p>
+<div [ngStyle]="currentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+<br>
+<label for="canSave">italic: <input id="canSave" type="checkbox" [(ngModel)]="canSave"></label> |
+<label for="isUnchanged">normal: <input id="isUnchanged" type="checkbox" [(ngModel)]="isUnchanged"></label> |
+<label for="isSpecial">xlarge: <input id="isSpecial" type="checkbox" [(ngModel)]="isSpecial"></label>
+<button type="button" (click)="setCurrentStyles()">Refresh currentStyles</button>
+<br><br>
+<div [ngStyle]="currentStyles">
+  This div should be {{ canSave ? "italic": "plain"}},
+  {{ isUnchanged ? "normal weight" : "bold" }} and,
+  {{ isSpecial ? "extra large": "normal size"}} after clicking "Refresh".</div>
+<hr>
+<hr>
+<h3>NgStyle Binding</h3>
+<div [style.font-size]="secondStyles.size ? 'x-large' : 'smaller'">
+  This div is x-large or smaller.
+</div>
+<h4>[ngStyle] binding to secondStyles - CSS property names</h4>
+<p>secondStyles is {{ secondStyles | json }}</p>
+<div [ngStyle]="testStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+<br>
+<label for="secondStyles.shape">italic: <input id="secondStyles.shape" type="checkbox" [(ngModel)]="secondStyles.shape" (click)="setSecondStyles()"></label> |
+<label for="secondStyles.weight">normal: <input id="secondStyles.weight" type="checkbox" [(ngModel)]="secondStyles.weight" (click)="setSecondStyles()"></label> |
+<label for="secondStyles.size">xlarge: <input id="secondStyles.size" type="checkbox" [(ngModel)]="secondStyles.size" (click)="setSecondStyles()"></label>
+<button type="button" (click)="setCurrentStyles()">Refresh currentStyles</button>
+<br><br>
+<div [ngStyle]="secondStyles">
+  This div should be {{ secondStyles.shape ? "italic": "plain"}},
+  {{ secondStyles.weight ? "normal weight" : "bold" }} and,
+  {{ secondStyles.size ? "extra large": "normal size"}} after clicking "Refresh".</div>
+<hr>

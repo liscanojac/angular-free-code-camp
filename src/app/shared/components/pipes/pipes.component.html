@@ -1,0 +1,45 @@
+<div *ngFor="let employee of employees; let even = even">
+  <div class="employeesList" [ngClass]="{even}">
+    <p class="employee">{{ employee.id }}</p>
+    <p class="employee">{{ employee.name | uppercase }}</p>
+    <p class="employee">{{ employee.surname | lowercase }}</p>
+    <!-- these after the "|" symbol are pipes, on this case, datePipes -->
+    <p class="employee">{{ employee.startDate | date }}</p>
+    <p class="employee">{{ employee.endDate | date: 'dd/MM/YYYY' }}</p>
+    <p class="employee">{{ employee.evaluationRating | percent }}</p>
+    <hinvapp-income class="employee" [salary]="employee.salary"></hinvapp-income>
+  </div>
+</div>
+<hr>
+<div>
+  <h4>SlicePipe</h4>
+  <div class="sliceFlex">
+    <p>Original String</p>
+    <p>{{ str }}</p>
+  </div>
+  <div class="sliceFlex">
+    <p>slice: 0 : 4</p>
+    <p>{{ str | slice: 0 : 4}}</p>
+  </div>
+  <div class="sliceFlex">
+    <p>slice: -4</p>
+    <p>{{ str | slice: -4}}</p>
+  </div>
+</div>
+<div>
+  <h4>Decimal Pipe for pi: {{pi}}</h4>
+  <hr>
+  <p>No formatting:</p>
+  <p>By default uses 3 decimal points</p>
+  <p>{{ pi | number }}</p>
+  <hr>
+  <p>Format: number: '.1-5'</p>
+  <p>its going to use as many numbers before the decimal point as needed, and just from 1 to 5 after the decimal test depending on how many have</p>
+  <p>{{ pi | number: '.1-5' }}</p>
+  <p>Format: number: '4.1-5'</p>
+  <p>as you can see, takes 4 numbers before thee decimal point and add the 1000s comma for the en-EN locale</p>
+  <p>{{ pi | number: '4.1-5' }}</p>
+  <p>to change this behaviour just change the locale in the component as you did in the income component</p>
+  <hr>
+
+</div>

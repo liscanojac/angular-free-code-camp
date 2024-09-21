@@ -1,0 +1,5 @@
+<!-- why using the income component? -->
+<!-- because I edited the locales, to make the currency symbol go to the right -->
+<!-- But making the locales non default ones that could mess with the dates and other formatting -->
+<!-- so, to keep it atomic I decided to just make a component with localeData modified that only managed the salary -->
+<p>{{ salary | currency: 'VES': 'Bs.' : '.2-2' }}</p>

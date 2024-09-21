@@ -1,0 +1,21 @@
+<p [ngClass]="{
+    'bold': stylesModel.bold,
+    'italic': stylesModel.italic,
+    'large': stylesModel.large
+  }">
+  Lorem ipsum, dolor sit amet consectetur adipisicing.
+</p>
+<label for="stylesModel.italic">
+  italic:
+  <input id="stylesModel.italic" type="checkbox" [(ngModel)]="stylesModel.italic">
+</label> |
+<label for="stylesModel.bold">
+  bold:
+  <input id="stylesModel.bold" type="checkbox" [(ngModel)]="stylesModel.bold">
+</label> |
+<label for="stylesModel.large">
+  large:
+  <input id="stylesModel.large" type="checkbox" [(ngModel)]="stylesModel.large">
+</label>
+<p>stylesModel: {{ stylesModel | json }}</p>
+<p>{{ testNum | currency: 'VES': 'Bs' : '.2-2'}}</p>
